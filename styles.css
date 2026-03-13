@@ -36,6 +36,10 @@ body {
 
 }
 
+img {
+    max-width: 100%;
+}
+
 ul[role="list"] {
     list-style: none;
     margin-block: 2.5rem;
@@ -93,6 +97,7 @@ a:hover::before {
 
 main h1 {
     margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 main form {
@@ -125,7 +130,7 @@ input[type="checkbox"] {
 
     width: 1rem;
     height: 1rem;
-    
+
     border: 2px solid var(--border-primary);
     border-radius: 0.40rem;
 
@@ -163,11 +168,26 @@ li {
     display: flex;
     align-items: center;
 
-    padding: 0.9rem 0.8rem;
+    padding: 1rem 0.8rem;
 
     gap: 1rem;
 }
 
+li button {
+    all: unset;
+    margin-left: auto;
+}
+
+li button img {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+}
+
+button:hover img {
+    filter: invert(50%) grayscale(100%) ;
+    cursor: pointer;
+}
 label {
     color: var(--content-secondary);
     line-height: 20px;
