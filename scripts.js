@@ -1,12 +1,8 @@
 const form = document.querySelector('form');
 const input = form.querySelector('input');
 const ul = document.querySelector('ul');
-const alert = document.querySelector('.alert');
-const alertButton = alert.querySelector('button');
-
-alertButton.onclick = () => {
-    alert.classList.add('hide');
-}
+const alertMenssage = document.querySelector('.alert');
+const alertButton = alertMenssage.querySelector('button');
 
 form.onsubmit = (event) => {
     event.preventDefault();
@@ -15,13 +11,17 @@ form.onsubmit = (event) => {
     addItem(itemName)
 }
 
-ul.onclick = (event) => { 
+alertButton.addEventListener('click', () => {
+    alertMenssage.classList.add('hide');
+})
+
+ul.addEventListener('click', (event) => {
     const target = event.target;
     if  (target.tagName === "IMG") {
         const li = target.closest("li");
         removeItem(li);
     }   
-}
+})
 
 
 function addItem(itemName) {
@@ -29,6 +29,8 @@ function addItem(itemName) {
         alert("Item invalido.")
         return
     }
+
+    input.value = ""
 
     const li = document.createElement('li');
     const _input = document.createElement('input');
@@ -53,5 +55,9 @@ function addItem(itemName) {
 
 function removeItem(li) {
     li.remove()
-    alert.classList.remove('hide');
+    alertMenssage.classList.remove('hide');
+
+    setTimeout(() => {
+        alertMenssage.classList.add('hide');
+    }, 3000);
 }
